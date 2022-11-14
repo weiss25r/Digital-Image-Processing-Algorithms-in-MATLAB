@@ -9,23 +9,28 @@ function output=dithering(img)
     
     [H, W] = size(img);
     
-    for h=1:H
-        for w=1:W
-            e = img(h,w)-output(h,w);
-            if w < W 
-                output(h,w+1) = output(h,w+1) + (e * 7/16);
+    for i=1:H
+        for j=1:W
+            
+            if(j == W-1)
+                disp(j)
+            end
+
+            e = img(i,j)-output(i,j);
+            if j < W 
+                output(i,j+1) = output(i,j+1) + (e * 7/16);
             end
     
-            if h < H
-                output(h+1,w) = output(h+1,w) + (e * 5/16);
+            if i < H
+                output(i+1,j) = output(i+1,j) + (e * 5/16);
             end
     
-            if h<H && w>1
-                output(h+1,w-1) = output(h+1,w-1) + (e * 3/16);
+            if i<H && j>1
+                output(i+1,j-1) = output(i+1,j-1) + (e * 3/16);
             end
     
-            if h<H && w<W
-                output(h+1,w+1) = output(h+1,w+1) + (e * 1/16);
+            if i<H && j<W
+                output(i+1,j+1) = output(i+1,j+1) + (e * 1/16);
             end
         end
     
