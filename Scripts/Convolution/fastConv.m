@@ -1,4 +1,6 @@
 function out=fastConv(img,ker)
+    %weiss25r -- 13/17/2022 -- 
+
     % kernel matrice -> vettore (per riga)
     % PRE PROCESSING
     ker = rot90(ker, 2);

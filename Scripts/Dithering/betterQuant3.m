@@ -1,4 +1,5 @@
 function out = betterQuant3(img)
+    %weiss25r - 14/11/2022 --
     out = img;
 
     map = round(0:255/15:255);
