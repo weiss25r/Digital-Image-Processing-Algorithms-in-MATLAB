@@ -17,16 +17,16 @@ function out = ham6(img)
         for j = start:size(img4096, 2)
             currpix = [map16(ind16(i, j)+1, 1), map16(ind16(i, j)+1, 2), map16(ind16(i, j)+1, 3)];
             
-            d1 = sqrt( (img4096(i, j, 1)-currpix(1))^2 + (img4096(i, j, 2)-currpix(2))^2 + img4096(i, j, 3)-currpix(3));
+            d1 = sqrt( (img4096(i, j, 1)-currpix(1))^2 + (img4096(i, j, 2)-currpix(2))^2 + (img4096(i, j, 3)-currpix(3))^2);
             
             r = [img4096(i, j, 1), lastpix(2), lastpix(3)];
             g = [lastpix(1), img4096(i, j, 2), lastpix(3)];
             b = [lastpix(1), lastpix(2), img4096(i, j, 3)];
             
             
-            er = sqrt((img4096(i, j, 1)-r(1))^2 + (img4096(i, j, 2)-r(2))^2 + img4096(i, j, 3)-r(3));
-            eg = sqrt((img4096(i, j, 1)-g(1))^2 + (img4096(i, j, 2)-g(2))^2 + img4096(i, j, 3)-g(3));
-            eb = sqrt((img4096(i, j, 1)-b(1))^2 + (img4096(i, j, 2)-b(2))^2 + img4096(i, j, 3)-b(3));
+            er = sqrt((img4096(i, j, 1)-r(1))^2 + (img4096(i, j, 2)-r(2))^2 + (img4096(i, j, 3)-r(3))^2);
+            eg = sqrt((img4096(i, j, 1)-g(1))^2 + (img4096(i, j, 2)-g(2))^2 + (img4096(i, j, 3)-g(3))^2);
+            eb = sqrt((img4096(i, j, 1)-b(1))^2 + (img4096(i, j, 2)-b(2))^2 + (img4096(i, j, 3)-b(3))^2);
             
             minerr = min([d1, er, eg, eb]);
 
@@ -35,6 +35,8 @@ function out = ham6(img)
                     out(i, j, 1) = currpix(1);
                     out(i, j, 2) = currpix(2);
                     out(i, j, 3) = currpix(3);
+                    lastpix = [map16(w+1, 1), map16(w+1, 2), map16(w+1, 3)];
+
 
                 case er
                     out(i, j, 1) = r(1);
