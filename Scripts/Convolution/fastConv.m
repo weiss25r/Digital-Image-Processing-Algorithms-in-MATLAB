@@ -30,3 +30,4 @@ function out=fastConv(img,ker)
     end
 
     out=out(hk-bx:end-bx,hk-by:end-by);  
+end
