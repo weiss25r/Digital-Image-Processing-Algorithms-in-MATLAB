@@ -24,5 +24,5 @@ function out=fastErosion(img,ker)
         out(i)=t;
     end
 
-    out=out(hk:end-hk-1, wk:end-wk-1);  
+    out=out(bx:end-bx-1, by:end-by-1);  
 end
