@@ -19,7 +19,7 @@ function out=medianFilter(img,ker)
     aus = find(tmp);
 
     for i=1:numel(aus)
-        out(aus(i))=median(img(lut+aus(i)));
+        out(i)=median(img(lut+(p)));
     end
 
     out=out(hk-bx:end-bx,hk-by:end-by);  
