@@ -2,6 +2,7 @@ function lut = computeLut(hk, wk, h)
     %weiss25r - 13/11/2022 --
     k = 1;
     lut = zeros(1, hk*wk);
+    
     t = -floor(hk/2);
     p = -floor(wk/2);
 
