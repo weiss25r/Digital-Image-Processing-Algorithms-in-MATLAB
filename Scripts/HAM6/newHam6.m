@@ -36,7 +36,7 @@ function out = newHam6(img)
             [~, p] = min(err);
 
             switch p
-                case ismember(p, 1:16)
+                case num2cell(1:16)
                     out(i,j, :) = map(p, :);
                 case 17
                     out(i, j, :) = [amiga(i,j, 1); lastpx(2); lastpx(3)];

@@ -1,11 +1,11 @@
-function out = newHam6(img)
+function out = newHam62(img)
     %passaggio a 4096 colori
-    amiga = round(img/17)*17; %quantizzazione a 4096 colori
+    amiga = (round(img/17)*17); %quantizzazione a 4096 colori
     
     [ind, map] = rgb2ind(amiga,16);
     map = round(map*255);
 
-    out = zeros(size(img));
+    out = zeros(size(img), 'uint8');
     [h, w] = size(img, [1 2]);
 
     k = ind(1, 1);
@@ -13,28 +13,33 @@ function out = newHam6(img)
     start = 2;
     out(1, 1, :) = lastpx;
 
+    amiga = double(amiga);
+
     for i = 1:h
         for j = start:w
             %tecnica greedy: minimizzo l'errore localmente a ogni passo
             err = zeros([1 19]);
-            
+
+            if(j == 13)
+                disp(j);
+            end
             for t = 1:16
-                err(t) = sqrt(double((amiga(i,j,1) - map(t, 1))^2+ (amiga(i,j,2) - map(t, 2))^2 + (amiga(i,j,3) - map(t, 3))^2));
+                err(t) = sqrt((amiga(i,j,1) - map(t, 1))^2+ (amiga(i,j,2) - map(t, 2))^2 + (amiga(i,j,3) - map(t, 3))^2);
             end
                 
             %mantengo verde e blu
-            err(17) = sqrt(double((amiga(i,j,2) -lastpx(2))^2 + (amiga(i,j,3) - lastpx(3))^2));
+            err(17) = sqrt((amiga(i,j,2) -lastpx(2))^2 + (amiga(i,j,3) - lastpx(3))^2);
             
             %mantengo rosso e blu
-            err(18) = sqrt(double((amiga(i,j,1) -lastpx(1))^2 + (amiga(i,j,3 - lastpx(3)^2)));
+            err(18) = sqrt((amiga(i,j,1) -lastpx(1))^2 + (amiga(i,j,3) - lastpx(3))^2);
             
             %mantengo rosso e verde
-            err(19) = sqrt(double((amiga(i,j,1)^2 -lastpx(1)^2) + (amiga(i,j,2)^2 - lastpx(2)^2)));
+            err(19) = sqrt((amiga(i,j,1) -lastpx(1))^2 + (amiga(i,j,2) - lastpx(2))^2);
             
             [~, p] = min(err);
 
             switch p
-                case ismember(p, 1:16)
+                case num2cell(1:16)
                     out(i,j, :) = map(p, :);
                 case 17
                     out(i, j, :) = [amiga(i,j, 1); lastpx(2); lastpx(3)];
