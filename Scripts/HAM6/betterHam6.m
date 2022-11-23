@@ -1,4 +1,4 @@
-function out = newHam62(img)
+function out = betterHam6(img)
     %passaggio a 4096 colori
     amiga = (round(img/17)*17); %quantizzazione a 4096 colori
     
@@ -17,6 +17,7 @@ function out = newHam62(img)
 
     for i = 1:h
         for j = start:w
+
             %tecnica greedy: minimizzo l'errore localmente a ogni passo
             err = zeros([1 19]);
             m = amiga(i, j, :);
