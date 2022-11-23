@@ -2,7 +2,7 @@ function out = betterHam6(img)
     %passaggio a 4096 colori
     amiga = (round(img/17)*17); %quantizzazione a 4096 colori
     
-    [ind, map] = rgb2ind(amiga,16);
+    [ind, map] = rgb2ind(amiga,16); %si trova la tavolozza
     map = round(map*255);
 
     out = zeros(size(img), 'uint8');
