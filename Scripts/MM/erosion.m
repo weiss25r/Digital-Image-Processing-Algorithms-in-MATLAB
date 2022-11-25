@@ -4,7 +4,7 @@ function out = erosion(img, se)
     wk = floor(size(se, 1)/2);
     hk = floor(size(se, 2)/2);
 
-    out = zeros(size(img));
+    out = zeros(size(img), 'uint8');
 
     for i = wk+1 : w-wk
         for j = hk+1: h-hk

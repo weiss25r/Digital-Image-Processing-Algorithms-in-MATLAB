@@ -12,11 +12,8 @@ function output=dithering(img)
     for i=1:H
         for j=1:W
             
-            if(j == W-1)
-                disp(j)
-            end
+            e = abs(img(i,j)-output(i,j));
 
-            e = img(i,j)-output(i,j);
             if j < W 
                 output(i,j+1) = output(i,j+1) + (e * 7/16);
             end

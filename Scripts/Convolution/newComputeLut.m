@@ -17,23 +17,25 @@ function lut = newComputeLut(hk, wk, h)
             p = -floor(wk/2);
             t = t + 1;
         end
-    elseif(hk == 1)
+    elseif(wk == 1)
+        t = -floor(hk/2);
+
+        for i = 1:hk*wk
+            lut(i) = t;
+            t = t+1;
+        end
+    else
         p = -floor(wk/2);
 
         for i = 1:hk*wk
-            lut(k) = p*h;
+            lut(i) = p*h;
             p = p+1;
-        end
-    else
-        t = -floor(wk/2);
-
-        for i = 1:hk*wk
-            lut(k) = t;
-            t = t+1;
         end
     
     end
 
     
   
+%% 
+%% 
 end
