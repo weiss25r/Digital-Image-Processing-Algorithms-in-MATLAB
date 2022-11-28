@@ -3,5 +3,5 @@ function out = apertura(img, se)
 
     %out = dilatation(erosion(img, se), rot90(se, 2));
     
-    out = imdilate(imerode(img, se), se);
+    out = imdilate(imerode(img, se), rot90(se, 2));
 end
