@@ -12,23 +12,23 @@ function out=fastConv(img,ker)
 
     k2=ker;
     k2=k2(:)';
-    ker=(0:255)'*k2;
+    glut=(0:255)'*k2;
 
-    tmp=ones(size(img),'uint8');
+    tmp=ones(size(img));
     tmp=padarray(tmp,[bx by],0,'both');
     img=padarray(img,[bx by],0,'both');
     
     out=tmp;
     
-    lut = newComputeLut(hk, wk, h);
+    lut = fastestLut(ker, size(img, 1));
 
     for i=find(tmp)
         t=0;
         for k=1:hk*wk
-            t=t+ker(img(lut(k)+i)+1,k);
+            t=t+glut(img(lut(k)+i)+1,k);
         end
         out(i)=t;
     end
-
-    %out=out(hk-bx:end-bx,hk-by:end-by);  
+    
+    out = out(bx+1:end-bx, by+1: end-by);
 end
