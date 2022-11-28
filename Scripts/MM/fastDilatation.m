@@ -14,7 +14,7 @@ function out=fastDilatation(img,se)
     out=tmp;
     h=size(img,1);
     
-    lut = correctMakeLut(se, h);
+    lut = fastestmmLut(se, h);
 
     for i=find(tmp)
         t=NaN;

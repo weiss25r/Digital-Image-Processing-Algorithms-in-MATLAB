@@ -14,7 +14,7 @@ function out=fastErosion(img,se)
     out=tmp;
     h=size(img,1);
     
-    lut = correctMakeLut(se, h);
+    lut = fastestmmLut(se, h);
 
     for i=find(tmp)
         t=NaN;
@@ -24,8 +24,6 @@ function out=fastErosion(img,se)
         out(i)=t;
     end
     
-    startH = max(hk-1, 1);
-    startW = max(wk-1, 1);
 
     out=out(bx+1:end-bx, by+1:end-by);  
 end
