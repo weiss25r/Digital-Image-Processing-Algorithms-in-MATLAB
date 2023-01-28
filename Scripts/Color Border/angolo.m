@@ -1,5 +1,5 @@
 function angolo(img)
-    [bordo, ~, dy, dx] = edge(rgb2gray(img), 'sobel');
+    [bordo, ~, dy, dx] = edge(img, 'sobel');
     angolo = atan2(-dy, -dx);
     direzione = round(254*(angolo+pi)/(2*pi))+1;
     direzione = direzione.*single(bordo);

@@ -1,13 +1,13 @@
 function binfile
 
     buffersize=1024;
-
+         
     num=4096; 
     filebuffer=zeros(1,num);
     idwrite=binfileopen('binfile.bin','w',buffersize);
     scrittura=zeros(1,num);
 
-    for i=1:num
+    for i=1:1
         filebuffer(i)=randi(16);
         scrittura(i)=randi(2^filebuffer(i))-1;
         idwrite=binfilewrite(idwrite,scrittura(i),filebuffer(i));
