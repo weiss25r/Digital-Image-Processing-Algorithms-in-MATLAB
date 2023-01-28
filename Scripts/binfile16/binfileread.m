@@ -4,7 +4,6 @@ function [fs,n]=binfileread(fs,k)
     if fs.i==fs.bsz && fs.j<=0
         fs.i=0;
         fs.v=uint16(fread(fs.fid,fs.bsz,'uint16'));
-        fprintf('reading\n');
     end
 
     if fs.j==0

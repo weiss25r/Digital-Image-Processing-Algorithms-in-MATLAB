@@ -8,7 +8,7 @@ function writeNum(i, k)
 
     fclose(idwrite.fid);
 
-    idread = binfileopen('numero.bin', 'r', buffersize);
+    idread = binfileopen('lena.ham', 'r', buffersize);
     [idread, readed] = binfileread(idread, k);
     disp(readed);
     fclose(idread.fid);

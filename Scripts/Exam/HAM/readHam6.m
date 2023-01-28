@@ -1,7 +1,7 @@
 function rgb = readHam6(filename, map, h, w)
     
     rgb = zeros(h, w, 3);
-    file = binfileopen(filename, 'w', 8);
+    file = binfileopen(filename, 'r', 8);
     lastpx = [1 1];
 
     for i = 1:h
@@ -11,6 +11,7 @@ function rgb = readHam6(filename, map, h, w)
 
             %leggo i dati
             [file, data] = binfileread(file, 4);
+            data = data+1;
 
             switch(ctrl)
                 case 0

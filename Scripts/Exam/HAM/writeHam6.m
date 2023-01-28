@@ -32,7 +32,7 @@ function map = writeHam6(img, filename)
                 %il primo pixel necessariamente sarà in modalità HOLD
                 %prendi il colore della tavolozza
                 file = binfilewrite(file, 0, 2);
-                file = binfilewrite(file, uint16(ind(i, j)), 4);
+                file = binfilewrite(file, uint16(ind(i, j)-1), 4);
             else
                 %&metodo greedy: minimizzo l'errore locale
                 %errore calcolato come 
@@ -54,8 +54,8 @@ function map = writeHam6(img, filename)
                 [~, minErr] = min([errI, errR, errG, errB]);
                 
                 %scrittura su file di ctrl e dati
-                file = binfilewrite(file, minErr, 2);                       
-                file = binfilewrite(file, uint16(ind(i, j)), 4);
+                file = binfilewrite(file, minErr-1, 2);                       
+                file = binfilewrite(file, uint16(ind(i, j)-1), 4);
 
                 lastpx = [i, j];
             end
