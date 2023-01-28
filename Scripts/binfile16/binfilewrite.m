@@ -9,7 +9,6 @@ function fs=binfilewrite(fs,n,k)
         fwrite(fs.fid, fs.v(1:fs.bsz), 'uint16');
         fs.i=0;
         fs.v=zeros(1,fs.bsz,'uint16');
-        fprintf('writing\n');
     end
     
     if fs.j==0

@@ -36,16 +36,16 @@ function [out, map, ctrl] = ham6(img)
                 %errore calcolato come distanza tra le terne
                 
                 %ctrl = 0
-                errI = hamerror(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), map(ind(i,j),1 ), map(ind(i,j),2), map(ind(i,j),3));
+                errI = error(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), map(ind(i,j),1 ), map(ind(i,j),2), map(ind(i,j),3));
 
                 %ctrl = 1
-                errR = hamerror(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), map(ind(i,j),1 ), out(lastpx(1),lastpx(2), 2), out(lastpx(1),lastpx(2), 3));
+                errR = error(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), map(ind(i,j),1 ), out(lastpx(1),lastpx(2), 2), out(lastpx(1),lastpx(2), 3));
 
                 %ctrl = 2
-                errG = hamerror(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), out(lastpx(1),lastpx(2), 1), map(ind(i,j),2), out(lastpx(1),lastpx(2), 3));
+                errG = error(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), out(lastpx(1),lastpx(2), 1), map(ind(i,j),2), out(lastpx(1),lastpx(2), 3));
 
                 %&ctrl = 3
-                errB = hamerror(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), out(lastpx(1),lastpx(2), 1), out(lastpx(1),lastpx(2), 2), map(ind(i, j), 3));
+                errB = error(amiga(i,j, 1), amiga(i,j,2), amiga(i,j,3), out(lastpx(1),lastpx(2), 1), out(lastpx(1),lastpx(2), 2), map(ind(i, j), 3));
 
                 %minimizzazione dell'errore
                 minErr = min([errI, errR, errG, errB]);
