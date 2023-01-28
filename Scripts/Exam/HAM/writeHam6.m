@@ -1,4 +1,4 @@
-function writeHam6(img)
+function map = writeHam6(img, filename)
     %quantizzazione immagine a 4096 colori
     [amiga, map] = rgb2ind(img, 4096);
 
@@ -23,7 +23,7 @@ function writeHam6(img)
     %codifica HAM6 su file
 
     buffersize = 8;
-    file = binfileopen('img.ham6','w',buffersize);
+    file = binfileopen(filename,'w',buffersize);
 
     lastpx = [1, 1];
     for i = 1:h
