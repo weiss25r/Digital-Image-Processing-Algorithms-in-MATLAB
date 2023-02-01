@@ -1,5 +1,6 @@
 function h = histogram(img)
-    h = imhist(uint8(img), 256);
+    h = imhist(uint8(img), 256)';
+    %normalizzazione a 100, ceil per avere almeno 1 pixel nella barretta
     m = 101-ceil(100*double(h)/double(max(h(:))));
     out = zeros(120, 256, 'uint8')+255;
 
