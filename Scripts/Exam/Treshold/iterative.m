@@ -11,7 +11,6 @@ function out = iterative(img, t)
         t = (u_one+u_two)/2;
         t_prev = t;
         
-
     end
 
     out = t;
