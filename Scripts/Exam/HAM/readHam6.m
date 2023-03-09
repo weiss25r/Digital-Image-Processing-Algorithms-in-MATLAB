@@ -1,5 +1,4 @@
 function rgb = readHam6(filename, map, h, w)
-    
     rgb = zeros(h, w, 3);
     file = binfileopen(filename, 'r', 8);
     lastpx = [1 1];

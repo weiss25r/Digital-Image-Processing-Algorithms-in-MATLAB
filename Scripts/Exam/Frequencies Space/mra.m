@@ -7,7 +7,7 @@ function out = mra(img, level)
 
     img_prev = img;
 
-    while l > 1
+    while l > level
         %haar su tutte le righe
         for i = 1:h
             [lpass, hpass] = haar(img_prev(i, 1:l));
