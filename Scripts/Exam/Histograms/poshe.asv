@@ -1,0 +1,15 @@
+function out = poshe(img, blockSize, stepSize)
+    img = single(img);
+
+    out = zeros(size(img), 'single');
+    freq = zeros(size(img), 'single');
+
+    [h, w]
+
+    dx = stepSize(1);
+    dy = stepSize(2);
+
+    for i = 1:
+
+
+end

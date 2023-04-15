@@ -2,7 +2,7 @@ function out = fastConv(img, ker)
     %si ruota di 180° il kernel
     ker = rot90(ker, 2);
     
-    %per facilitare i calcoli, si converte a single l'immagine
+    %per evitare errori di arrotondamento, si converte a single l'immagine
     img = single(img);
 
     %si precalcolano i prodotti possibili tra i valori di grigio e i valori

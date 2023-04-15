@@ -1,4 +1,4 @@
-function out = fakegrays(img)
+function [tav, out] = fakegrays(img)
     %img 24bpp
     %raffaele terracino con licensa studiata in open data 2 settimane fa
     tav = zeros(256*6, 3);

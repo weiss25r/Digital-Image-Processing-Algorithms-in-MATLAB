@@ -15,7 +15,7 @@ function out = poshe(img, blockSize)
 
     for i = 1:stepR:h-di+1
         for j = 1:stepC:w-dj+1
-            out(i:i+di-1, j:j+dj-1) =out(i:i+di-1, j:j+dj-1) + single(histeq(img(i:i+di-1, j:j+dj-1)));
+            out(i:i+di-1, j:j+dj-1) = out(i:i+di-1, j:j+dj-1) + single(histeq(img(i:i+di-1, j:j+dj-1)));
             freq(i:i+di-1, j:j+dj-1) = freq(i:i+di-1, j:j+dj-1) + 1;
         end
     end

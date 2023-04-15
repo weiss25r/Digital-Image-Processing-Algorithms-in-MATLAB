@@ -1,4 +1,4 @@
-function cubes = medianCut(img, maxColors)
+function [out, cubes] = medianCut(img, maxColors)
     %1) costruisce il cubo rgb iniziale
     imgR = img(:, :, 1);
     imgG = img(:, :, 2);
@@ -65,6 +65,6 @@ function cubes = medianCut(img, maxColors)
         cubes(end+1) = cubeB;         
     end
     
-
+    out = quantization(img, cubes);
 
 end
